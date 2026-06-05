@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Changed from "@theme inline" to "@theme" */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Map Tailwind's default sans font to our custom Google Sans variable */
+  --font-sans: var(--font-google-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
