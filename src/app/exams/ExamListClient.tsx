@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { FaLandmark, FaUsersCog, FaMoneyCheckAlt, FaTrain, FaMapMarkedAlt, FaGraduationCap } from "react-icons/fa";
 
@@ -9,12 +9,12 @@ const IconMap: Record<string, React.ElementType> = {
   FaLandmark, FaUsersCog, FaMoneyCheckAlt, FaTrain, FaMapMarkedAlt,
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
 };
