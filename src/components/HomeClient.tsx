@@ -23,7 +23,7 @@ const colorPalettes = [
   { color: "text-purple-600", bg: "bg-purple-100" },
 ];
 
-const containerVariants: Variants = = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -31,7 +31,7 @@ const containerVariants: Variants = = {
   }
 };
 
-const itemVariants: Variants = = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
 };
