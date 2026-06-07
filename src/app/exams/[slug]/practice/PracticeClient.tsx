@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, XCircle, ArrowLeft, BookOpen, BarChart } from "lucide-react";
+import { CheckCircle2, XCircle, ArrowLeft, BookOpen, BarChart, Tag } from "lucide-react";
 import Link from "next/link";
 
 interface QuestionType {
@@ -10,7 +10,8 @@ interface QuestionType {
   options: string[];
   correctAnswer: string;
   explanation?: string;
-  difficulty?: string; // Added difficulty
+  difficulty?: string;
+  topic?: string; // Added topic
 }
 
 interface PracticeProps {
@@ -46,8 +47,6 @@ export default function PracticeClient({ exam, questions }: PracticeProps) {
       default: return "bg-amber-100 text-amber-700 border-amber-200";
     }
   };
-
-  console.log(questions)
 
   if (!questions || questions.length === 0) {
     return (
@@ -132,13 +131,22 @@ export default function PracticeClient({ exam, questions }: PracticeProps) {
                   </span>
 
                   <div className="flex-1">
-                    {/* Difficulty Badge & Question Text */}
+                    {/* Tags & Question Text */}
                     <div className="mb-5">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold border ${getDifficultyColor(q.difficulty)}`}>
+                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                        {/* Difficulty Badge */}
+                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold border uppercase tracking-wider ${getDifficultyColor(q.difficulty)}`}>
                           <BarChart className="w-3 h-3" />
                           {q.difficulty || "Medium"}
                         </span>
+
+                        {/* Topic Badge */}
+                        {q.topic && (
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold border border-slate-200 bg-slate-100 text-slate-600 uppercase tracking-wider">
+                            <Tag className="w-3 h-3" />
+                            {q.topic}
+                          </span>
+                        )}
                       </div>
                       <h3 className="text-lg font-semibold text-slate-900 leading-relaxed">
                         {q.questionText}

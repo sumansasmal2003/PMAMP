@@ -51,6 +51,8 @@ export default async function PracticePage({
     options: [q.options.a, q.options.b, q.options.c, q.options.d],
     correctAnswer: q.options[q.correctOption],
     explanation: q.explanation,
+    difficulty: q.difficulty,
+    topic: q.topic,
   }));
 
   return <PracticeClient exam={exam} questions={questions} />;
